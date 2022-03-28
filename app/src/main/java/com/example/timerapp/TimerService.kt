@@ -39,12 +39,6 @@ class TimerService: Service() {
     override fun onTaskRemoved(rootIntent: Intent?) {
         super.onTaskRemoved(rootIntent)
 
-        if (::timer.isInitialized) {
-            timer.cancel()
-            state = TimerState.TERMINATED
-        }
-        NotificationTimer.removeNotification()
-        stopSelf()
     }
 
     private fun playTimer(setTime: Long, isReplay: Boolean) {
